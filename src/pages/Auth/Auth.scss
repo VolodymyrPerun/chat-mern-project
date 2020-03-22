@@ -1,0 +1,38 @@
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+
+  &__top {
+    margin-bottom: 50px;
+    text-align: center;
+
+    &__h2 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 21px;
+      letter-spacing: 0.1px;
+      opacity: 0.5;
+    }
+  }
+
+  .whiteBlock {
+    width: 430px;
+  }
+
+  #components-form-demo-normal-login .login-form {
+    max-width: 300px;
+  }
+  #components-form-demo-normal-login .login-form-forgot {
+    float: right;
+  }
+  #components-form-demo-normal-login .login-form-button {
+    width: 100%;
+  }
+}

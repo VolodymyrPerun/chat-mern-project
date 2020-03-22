@@ -1,12 +1,9 @@
 import React from 'react'
-import {Button} from 'components';
+import Auth from "./pages/Auth";
 
 function App() {
     return <div className="wrapper">
-        <h1>Hello!</h1>
-        <Button type="primary"
-                shape="rounded"
-                size="large">Click me</Button>
+        <Auth/>
     </div>;
 }
 
