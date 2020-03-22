@@ -25,37 +25,44 @@ const Auth = () => {
                         onFinish={onFinish}
                     >
                         <Form.Item
+                            hasFeedback
                             name="username"
-                            rules={[{required: true, message: 'Будь ласка, введіть свій Логін!'}]}
-                        >
-                            <Input prefix={<UserOutlined className="site-form-item-icon"/>} placeholder="Логін"/>
-                        </Form.Item>
-                        <Form.Item
-                            name="password"
-                            rules={[{required: true, message: 'Будь ласка, введіть свій Пароль!'}]}
+                            rules={[{
+                                required: true,
+                                validateStatus: "success",
+                                message: 'Будь ласка, введіть свій Логін!'
+                            }]}
                         >
                             <Input
-                                prefix={<LockOutlined className="site-form-item-icon"/>}
-                                type="password"
-                                placeholder="Пароль"
+                                prefix={<UserOutlined className="site-form-item-icon"/>}
+                                placeholder="Логін"
+                                size="large"
+                            />
+                        </Form.Item>
+                        <Form.Item
+                            hasFeedback
+                            name="password"
+                            rules={[{
+                                required: true,
+                                validateStatus: "success",
+                                message: 'Будь ласка, введіть свій Пароль!'
+                            }]}
+                        >
+                            <Input label="Success"
+                                   prefix={<LockOutlined className="site-form-item-icon"/>}
+                                   type="password"
+                                   placeholder="Пароль"
+                                   size="large"
+                                   validateStatus="success"
                             />
                         </Form.Item>
                         <Form.Item>
-                            <Form.Item name="remember" valuePropName="checked" noStyle>
-                                <Checkbox>Запам'ятати мене</Checkbox>
-                            </Form.Item>
-
-                            <a className="login-form-forgot" href="">
-                                Забули пароль?
-                            </a>
-                        </Form.Item>
-
-                        <Form.Item>
-                            <Button type="primary" htmlType="submit" className="login-form-button">
-                                Ввійти
+                            <Button type="primary" size="large" htmlType="submit">
+                                Ввійти в аккаунт
                             </Button>
-                             {" "} чи <a href="">зареєструватись зараз!</a>
                         </Form.Item>
+                            <a className="auth__register-link" href="#">Зареєструватись!</a>
+
                     </Form>
                 </WhiteBlock>
             </div>

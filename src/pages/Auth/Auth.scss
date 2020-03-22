@@ -20,19 +20,28 @@
       letter-spacing: 0.1px;
       opacity: 0.5;
     }
+
+  }
+
+  &__register-link {
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    letter-spacing: 0.1px;
+    color: #ADADAD;
+  }
+
+  .button {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    width: 100%;
+
   }
 
   .whiteBlock {
     width: 430px;
   }
 
-  #components-form-demo-normal-login .login-form {
-    max-width: 300px;
-  }
-  #components-form-demo-normal-login .login-form-forgot {
-    float: right;
-  }
-  #components-form-demo-normal-login .login-form-button {
-    width: 100%;
-  }
 }
