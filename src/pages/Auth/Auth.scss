@@ -31,6 +31,27 @@
     color: #ADADAD;
   }
 
+  &__success-block {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 25vh;
+    svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    p {
+      color: #adadad;
+    }
+  }
+
   .button {
     text-transform: uppercase;
     font-weight: 500;

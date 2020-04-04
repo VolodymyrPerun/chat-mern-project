@@ -1,12 +1,13 @@
 import React from 'react';
 import {Form, Icon, Input} from "antd";
-import {LockOutlined, MailOutlined, UserAddOutlined} from "@ant-design/icons";
+import {LockOutlined, MailOutlined, UserAddOutlined, InfoCircleTwoTone} from "@ant-design/icons";
 import {Button, WhiteBlock} from "components";
 import {Link} from "react-router-dom";
 
 
 export default class RegisterForm extends React.Component {
     render() {
+        const success = false;
         const onFinish = values => {
             console.log('Received values of form: ', values);
         };
@@ -18,7 +19,7 @@ export default class RegisterForm extends React.Component {
                     <p>Для входу в чат, вам необхідно зареєструватися</p>
                 </div>
                 <WhiteBlock>
-                    <Form
+                    {success ?  <Form
                         name="normal_login"
                         className="login-form"
                         initialValues={{remember: true}}
@@ -96,7 +97,15 @@ export default class RegisterForm extends React.Component {
                             </Button>
                         </Form.Item>
                         <Link className="auth__register-link" to="/register">Ввійти в аккаунт</Link>
-                    </Form>
+                    </Form> : (
+                        <div className="auth__success-block">
+                            <div>
+                                <InfoCircleTwoTone />
+                            </div>
+                            <h2>Підтвердьте свій акаунт</h2>
+                            <p>На вашу пошту відправлено лист з посиланням на підтвердження акаунта</p>
+                        </div>
+                    )}
                 </WhiteBlock>
             </>
         )
