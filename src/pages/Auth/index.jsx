@@ -1,7 +1,7 @@
 import React from 'react';
-import {WhiteBlock} from "../../components";
 import "./Auth.scss"
-import {LoginForm }from "modules";
+import {LoginForm, RegisterForm} from "modules";
+import {Route} from "react-router-dom"
 
 
 const Auth = () => (
@@ -9,11 +9,8 @@ const Auth = () => (
     <div className="wrapper">
         <section className="auth">
             <div className="auth__content">
-                <div className="auth__top">
-                    <h2>Ввійти в аккаунт</h2>
-                    <p>Будь ласка, ввійдіть в свій аккаунт</p>
-                </div>
-                    <LoginForm/>
+                <Route exact path={["/", "/login"]} component={LoginForm}/>
+                <Route path="/register" component={RegisterForm}/>
             </div>
         </section>
     </div>
