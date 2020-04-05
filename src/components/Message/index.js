@@ -10,12 +10,20 @@ const Message = ({avatar, user, text, date}) => {
                 <img src={avatar}
                      alt="$`{user.fullname}` avatar"/>
             </div>
+            <div className="message__content">
+                <div className="message__bubble">
+                    <p className="message__text">{text}</p>
+                </div>
+                <span className="message__data">
+                    Вчора, в 23:45
+                </span>
+            </div>
         </div>
     );
 };
 
 Message.defaultProps = {
-    user:{}
+    user: {}
 };
 
 Message.propTypes = {
