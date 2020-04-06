@@ -1,7 +1,38 @@
-@import '~antd/dist/antd.css';
+@import "~styles/variables";
 
-.button {
-  &--large {
-    width: 156px;
+.message {
+  display: flex;
+  max-width: 440px;
+
+  &__avatar {
+    display: flex;
+    flex-direction: column-reverse;
+
+    img {
+      width: 33px;
+      height: 33px;
+      margin-right: 13px;
+      margin-bottom: 23px;
+      border-radius: 50%;
+    }
   }
+
+  &__bubble {
+    background: $blue;
+    border-radius: 12px 12px 12px 0;
+    box-shadow: 0 5px 5px rgba(54, 116, 255, 0.196733);
+    padding: 15px;
+    margin-bottom: 8px;
+  }
+
+  &__date {
+    font-size: 12px;
+    opacity: 0.5;
+  }
+
+  &__text {
+    color: #fff;
+    line-height: 20px;
+  }
+
 }

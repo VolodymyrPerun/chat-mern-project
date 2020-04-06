@@ -1,9 +1,11 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import classNames from 'classnames';
 import "./Message.scss";
+import formatDistanceToNow from "date-fns/formatDistanceToNow/index";
+import localize from './_lib/localize/index'
 
 const Message = ({avatar, user, text, date}) => {
+
     return (
         <div className="message">
             <div className="message__avatar">
@@ -14,9 +16,11 @@ const Message = ({avatar, user, text, date}) => {
                 <div className="message__bubble">
                     <p className="message__text">{text}</p>
                 </div>
-                <span className="message__data">
-                    Вчора, в 23:45
-                </span>
+                <time className="message__date">
+                    {formatDistanceToNow(new Date(date), {addSuffix: true,
+                        localize: localize
+                    })}
+                </time>
             </div>
         </div>
     );
