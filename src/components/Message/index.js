@@ -2,12 +2,13 @@ import React from 'react';
 import propTypes from 'prop-types';
 import "./Message.scss";
 import formatDistanceToNow from "date-fns/formatDistanceToNow/index";
-import ru from 'date-fns/locale/ru'
+import ru from 'date-fns/locale/ru';
+import classNames from 'classnames'
 
-const Message = ({avatar, user, text, date}) => {
+const Message = ({avatar, user, text, date, isMe}) => {
 
     return (
-        <div className="message">
+        <div className={classNames('message', {'message--isme': isMe})}>
             <div className="message__avatar">
                 <img src={avatar}
                      alt="$`{user.fullname}` avatar"/>
