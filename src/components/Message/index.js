@@ -3,25 +3,33 @@ import propTypes from 'prop-types';
 import "./Message.scss";
 import formatDistanceToNow from "date-fns/formatDistanceToNow/index";
 import ru from 'date-fns/locale/ru';
-import classNames from 'classnames'
+import classNames from 'classnames';
+import readedSvg from "assets/img/readed.svg"
 
 const Message = ({avatar, user, text, date, isMe}) => {
 
     return (
         <div className={classNames('message', {'message--isme': isMe})}>
-            <div className="message__avatar">
-                <img src={avatar}
-                     alt="$`{user.fullname}` avatar"/>
-            </div>
+
             <div className="message__content">
-                <div className="message__bubble">
-                    <p className="message__text">{text}</p>
+                <img src={readedSvg} alt="Checked icon"/>
+                <div>
+                    <div className="message__avatar">
+                        <img src={avatar}
+                             alt="$`{user.fullname}` avatar"/>
+                    </div>
+                    <div className="message_info">
+                        <div className="message__bubble">
+                            <p className="message__text">{text}</p>
+                        </div>
+                        <time className="message__date">
+                            {formatDistanceToNow(new Date(date), {
+                                addSuffix: true,
+                                locale: ru
+                            })}
+                        </time>
+                    </div>
                 </div>
-                <time className="message__date">
-                    {formatDistanceToNow(new Date(date), {addSuffix: true,
-                        locale: ru
-                    })}
-                </time>
             </div>
         </div>
     );
