@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import "./Message.scss";
 import formatDistanceToNow from "date-fns/formatDistanceToNow/index";
-import localize from './_lib/localize/index'
+import ru from 'date-fns/locale/ru'
 
 const Message = ({avatar, user, text, date}) => {
 
@@ -18,7 +18,7 @@ const Message = ({avatar, user, text, date}) => {
                 </div>
                 <time className="message__date">
                     {formatDistanceToNow(new Date(date), {addSuffix: true,
-                        localize: localize
+                        locale: ru
                     })}
                 </time>
             </div>
