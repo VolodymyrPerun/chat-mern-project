@@ -9,8 +9,8 @@ const Auth = () => (
     <div className="wrapper">
         <section className="auth">
             <div className="auth__content">
-                <Route exact path={["/", "/login","/register"]} component={Auth}/>
-                <Route path= component={RegisterForm}/>
+                <Route exact path={["/", "/login"]} component={LoginForm}/>
+                <Route path="/register" component={RegisterForm}/>
             </div>
         </section>
     </div>
