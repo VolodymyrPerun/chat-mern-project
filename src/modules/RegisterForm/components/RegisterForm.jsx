@@ -7,18 +7,18 @@ import {Link} from "react-router-dom";
 
 const RegisterForm = props => {
 
-        const {
-            success = false,
-            values,
-            touched,
-            errors,
-            isSubmitting,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            handleReset,
-            dirty,
-        } = props;
+    const {
+        success = false,
+        values,
+        touched,
+        errors,
+        isSubmitting,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        handleReset,
+        dirty,
+    } = props;
     return (
         <>
             <div className="auth__top">
@@ -26,23 +26,20 @@ const RegisterForm = props => {
                 <p>Для входу в чат, вам необхідно зареєструватися</p>
             </div>
             <WhiteBlock>
-                {!success ?  (<Form
+                {!success ? (<Form
                     onSubmit={handleSubmit}
                     className="login-form"
                 >
                     <Form.Item
                         hasFeedback
                         name="mail"
-                        rules={[{
-                            required: true,
-                            validateStatus: "success",
-                            message: 'Будь ласка, введіть свій E-mail!'
-                        }]}
+                        validateStatus= {errors.email && touched.email}
                     >
                         <Input
                             prefix={<MailOutlined className="site-form-item-icon"/>}
                             placeholder="E-mail"
                             size="large"
+                            value={values.email}
                         />
                     </Form.Item>
                     <Form.Item
@@ -105,7 +102,7 @@ const RegisterForm = props => {
                 </Form>) : (
                     <div className="auth__success-block">
                         <div>
-                            <InfoCircleTwoTone />
+                            <InfoCircleTwoTone/>
                         </div>
                         <h2>Підтвердьте свій акаунт</h2>
                         <p>На вашу пошту відправлено лист з посиланням на підтвердження акаунта</p>

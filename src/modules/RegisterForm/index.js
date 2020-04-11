@@ -2,7 +2,7 @@ import {withFormik} from 'formik';
 import RegisterForm from "./containers/RegisterForm";
 
 export default withFormik({
-    mapPropsToValues: () => ({email: "qwerty"}),
+    // mapPropsToValues: () => ({email: "qwerty"}),
     // Custom sync validation
     validate: values => {
         let errors = {};
