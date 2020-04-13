@@ -12,12 +12,11 @@ const RegisterForm = props => {
         values,
         touched,
         errors,
-        isSubmitting,
         handleChange,
         handleBlur,
         handleSubmit,
-        handleReset,
-        dirty,
+        isValid,
+        dirty
     } = props;
     return (
         <>
@@ -30,71 +29,115 @@ const RegisterForm = props => {
                     onSubmit={handleSubmit}
                     className="login-form"
                 >
+                    {/*---------email--------*/}
                     <Form.Item
+                        validateStatus={!touched.email ? "" : errors.email ? "error" : "success"}
                         hasFeedback
-                        name="mail"
-                        validateStatus= {errors.email && touched.email}
                     >
                         <Input
                             prefix={<MailOutlined className="site-form-item-icon"/>}
-                            placeholder="E-mail"
+                            id="email"
+                            placeholder="Введіть ваш E-Mail"
+                            type="email"
                             size="large"
                             value={values.email}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className={
+                                errors.email && touched.email ? (
+                                    'text-input error'
+                                ) : (
+                                    'text-input'
+                                )
+                            }
                         />
+                        {errors.email &&
+                        touched.email && (
+                            <div className="input-feedback">{errors.email}</div>
+                        )}
                     </Form.Item>
+                    {/*---------username--------*/}
                     <Form.Item
+                        validateStatus={!touched.username ? "" : errors.username ? "error" : "success"}
                         hasFeedback
-                        name="username"
-                        rules={[{
-                            required: true,
-                            validateStatus: "success",
-                            message: "Будь ласка, введіть своє ім'я!"
-                        }]}
                     >
-                        <Input label="Success"
-                               prefix={<UserAddOutlined className="site-form-item-icon"/>}
+                        <Input prefix={<UserAddOutlined className="site-form-item-icon"/>}
+                               id="username"
                                type="username"
                                placeholder="Ваше ім'я"
                                size="large"
-                               validateStatus="success"
+                               value={values.username}
+                               onChange={handleChange}
+                               onBlur={handleBlur}
+                               className={
+                                   errors.username && touched.username ? (
+                                       'text-input error'
+                                   ) : (
+                                       'text-input'
+                                   )
+                               }
                         />
+                        {errors.username &&
+                        touched.username && (
+                            <div className="input-feedback">{errors.username}</div>
+                        )}
                     </Form.Item>
+                    {/*---------password--------*/}
                     <Form.Item
                         hasFeedback
-                        name="password"
-                        rules={[{
-                            required: true,
-                            validateStatus: "success",
-                            message: 'Будь ласка, введіть свій Пароль!'
-                        }]}
+                        validateStatus={!touched.password ? "" : errors.password ? "error" : "success"}
                     >
-                        <Input label="Success"
-                               prefix={<LockOutlined className="site-form-item-icon"/>}
+                        <Input prefix={<LockOutlined className="site-form-item-icon"/>}
+                               id="password"
                                type="password"
                                placeholder="Пароль"
                                size="large"
-                               validateStatus="success"
+                               value={values.password}
+                               onChange={handleChange}
+                               onBlur={handleBlur}
+                               className={
+                                   errors.password && touched.password ? (
+                                       'text-input error'
+                                   ) : (
+                                       'text-input'
+                                   )
+                               }
                         />
+                        {errors.password &&
+                        touched.password && (
+                            <div className="input-feedback">{errors.password}</div>
+                        )}
                     </Form.Item>
+                    {/*---------password repeat--------*/}
                     <Form.Item
                         hasFeedback
-                        name="password"
-                        rules={[{
-                            required: true,
-                            validateStatus: "success",
-                            message: 'Будь ласка, повторіть свій Пароль!'
-                        }]}
+                        validateStatus={!touched.repeatPassword ? "" : errors.repeatPassword ? "error" : "success"}
                     >
-                        <Input label="Success"
-                               prefix={<LockOutlined className="site-form-item-icon"/>}
+                        <Input prefix={<LockOutlined className="site-form-item-icon"/>}
+                               id="repeatPassword"
                                type="password"
                                placeholder="Повторіть пароль"
                                size="large"
-                               validateStatus="success"
+                               value={values.repeatPassword}
+                               onChange={handleChange}
+                               onBlur={handleBlur}
+                               className={
+                                   errors.repeatPassword && touched.repeatPassword ? (
+                                       'text-input error'
+                                   ) : (
+                                       'text-input'
+                                   )
+                               }
                         />
+                        {errors.repeatPassword &&
+                        touched.repeatPassword && (
+                            <div className="input-feedback">{errors.repeatPassword}</div>
+                        )}
                     </Form.Item>
+
+                    {dirty && !isValid && <div className="input-feedback">Заповніть форму повністю!</div>}
                     <Form.Item>
-                        <Button type="primary" size="large" htmlType="submit">
+                        <Button onClick={handleSubmit} type="primary" size="large" htmlType="submit">
                             Зареєструватись
                         </Button>
                     </Form.Item>

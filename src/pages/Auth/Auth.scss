@@ -63,6 +63,26 @@
 
   .whiteBlock {
     width: 430px;
+    text-align: end;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, "Rage Italic";
+    font-style: italic;
+  }
+
+  .input-feedback {
+    color: red;
+      -webkit-animation: blink 2s linear infinite;
+      animation: blink 2s linear infinite;
+
+    @-webkit-keyframes blink {
+       50% { color: white; }
+       51% { color: indianred; }
+       100% { color: red; }
+     }
+    @keyframes blink {
+      50% { color: white; }
+      51% { color: indianred; }
+      100% { color: red; }
+    }
   }
 
 }
