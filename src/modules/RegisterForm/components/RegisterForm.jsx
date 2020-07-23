@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Icon, Input} from "antd";
+import {Form, Input} from "antd";
 import {LockOutlined, MailOutlined, UserAddOutlined, InfoCircleTwoTone} from "@ant-design/icons";
 import {Button, WhiteBlock} from "components";
 import {Link} from "react-router-dom";
@@ -18,6 +18,9 @@ const RegisterForm = props => {
         isValid,
         dirty
     } = props;
+
+
+
     return (
         <>
             <div className="auth__top">
@@ -25,7 +28,8 @@ const RegisterForm = props => {
                 <p>Для входу в чат, вам необхідно зареєструватися</p>
             </div>
             <WhiteBlock>
-                {!success ? (<Form
+                {!success ? (
+                    <Form
                     onSubmit={handleSubmit}
                     className="login-form"
                 >
@@ -141,7 +145,7 @@ const RegisterForm = props => {
                             Зареєструватись
                         </Button>
                     </Form.Item>
-                    <Link className="auth__register-link" to="/register">Ввійти в аккаунт</Link>
+                    <Link className="auth__register-link" to="/login">Ввійти в аккаунт</Link>
                 </Form>) : (
                     <div className="auth__success-block">
                         <div>
