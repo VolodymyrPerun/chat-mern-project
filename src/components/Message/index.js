@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import "./Message.scss";
 import formatDistanceToNow from "date-fns/formatDistanceToNow/index";
-import ru from 'date-fns/locale/ru';
+import ru from 'date-fns/locale/uk';
 import classNames from 'classnames';
 import readedSvg from "assets/img/readed.svg";
 import noReadedSvg from "assets/img/noreaded.svg"
